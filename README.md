@@ -1,5 +1,7 @@
 # Promisify
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+
 Transforms a callback-based function into a Promise. A user can optionally provide their own callback function. If provided, use `this.resolve()` and `this.reject()` within the callback.
 
 
