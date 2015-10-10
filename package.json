@@ -2,12 +2,20 @@
   "name": "@urban/promisify",
   "version": "1.0.1",
   "description": "Converts a callback-based function to a Promise.",
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
+    "clean": "rimraf lib",
     "lint": "standard",
-    "test": "npm run test:tape && npm run lint",
-    "test:tape": "babel-node ./src/__tests__/*.js | tap-spec",
-    "typecheck": "flow check ./src"
+    "test": "babel-node ./src/__tests__/*.js | tap-spec",
+    "check": "npm run lint && npm run typecheck && npm run test",
+    "build": "babel src --out-dir lib",
+    "preversion": "npm run clean && npm run check",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags && npm run clean",
+    "prepublish": "npm run clean && npm run build",
+    "typecheck": "flow check ./src",
+    "watch": "babel src --out-dir lib --watch"
   },
   "keywords": [
     "promise",
@@ -24,13 +32,10 @@
     "type": "git",
     "url": "git+https://github.com/urban/promisify.git"
   },
-  "engines": {
-    "node": ">=4.1.2",
-    "npm": ">=3.3.4"
-  },
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.3",
+    "babel-plugin-flow-comments": "^1.0.9",
     "rimraf": "^2.4.3",
     "standard": "^5.3.1",
     "tap-spec": "^4.1.0",
