@@ -14,7 +14,7 @@
     "test:cov": "rimraf coverage && babel-node $(npm bin)/isparta cover --config=.istanbul.json ./src/__tests__",
     "test:lint": "standard",
     "test:typecheck": "flow check ./src",
-    "test": "babel-node ./test/*.js | tap-spec",
+    "test": "babel-node ./src/__tests__/*.js | tap-spec",
     "preversion": "npm run check",
     "version": "npm run build",
     "postversion": "git push && git push --tags"
