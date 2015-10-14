@@ -3,5 +3,9 @@
   "loose": "all",
   "plugins": ["flow-comments"],
   "blacklist": ["flow"],
-  "ignore": ["./src/__tests__/*"]
+  "env": {
+    "production": {
+      "ignore": ["./src/__tests__/*"]
+    }
+  }
 }

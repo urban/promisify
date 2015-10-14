@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
-    "build:lib": "babel src --out-dir lib",
+    "build:lib": "NODE_ENV=production babel src --out-dir lib",
     "build:watch": "babel src --out-dir lib --watch",
     "build": "rimraf lib && npm run build:lib",
     "check": "npm run test:lint && npm run test:typecheck && npm test && npm run test:audit && npm outdated --depth 0",
