@@ -14,7 +14,7 @@ npm i --save @urban/promisify
 
 ## Example
 
-```sh
+```js
 import fs from 'fs'
 import promisify from '@urban/promisify'
 
